@@ -1,0 +1,27 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.home__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+}
+
+.home__header a {
+  margin-right: 20px;
+  text-decoration: inherit; /* gets rid of default text underline */
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 12px;
+}
+
+.home__header a:last-of-type {
+  margin-right: 0px;
+}
+
+.home__header a:hover {
+  text-decoration: underline;  /* adds underline only when hovered */
+}

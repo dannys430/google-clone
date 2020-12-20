@@ -1,22 +1,22 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
     <div className="home">
-      <h1>hey from Home</h1>
       
       <div className="home__header">
         <div className="home__headerLeft">
-          {/* about link */}
-          {/* store link */}
+          <Link to="about">about</Link>
+          <Link to="store">store</Link>
 
         </div>
         <div className="home__headerRight">
-          {/* gmail link */}
-          {/* images link */}
-          {/* grid link */}
-          {/* avatar */}
+          <Link to="gmail">gmail</Link>
+          <Link to="images">images</Link>
+          <Link to="grid">grid</Link>
+          <Link to="avatar">avatar</Link>
         </div>
       </div>
       
