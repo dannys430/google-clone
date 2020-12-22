@@ -66,13 +66,26 @@ function SearchPage() {
                 <Link to='/more'>More</Link>
               </div>
             </div>
-            <div className="searchPage__optionsRight"></div>
+            <div className="searchPage__optionsRight">
+              <div className="searchPage__option">
+                <Link to='/settings'>Settings</Link>
+              </div>
+              <div className="searchPage__option">
+                <Link to='/tools'>Tools</Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="searchPage__results">
-        
+        {term && (
+          <div className="searchPage__results">
+            <p className="searchPage__resultCount">
+              About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for '{term}'
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )
