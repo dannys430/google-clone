@@ -19,13 +19,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 // https://cse.google.com/cse/create/new
 
 function SearchPage() {
-  const [{term}, dispatch] = useStateValue()
+  const [{term='chiang mai'}, dispatch] = useStateValue()
 
   // LIVE API CALL (100 call per day limit with free version)
-  // const {data} = useGoogleSearch(term);
+  const {data} = useGoogleSearch(term);
 
   // STATIC API CALL (use for testing so I don't run out of LIVE api calls)
-  const data = Response2;
+  // const data = Response2;
 
   console.log(data)
   return (
@@ -78,15 +78,34 @@ function SearchPage() {
         </div>
       </div>
 
-      <div className="searchPage__results">
-        {term && (
-          <div className="searchPage__results">
-            <p className="searchPage__resultCount">
-              About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for '{term}'
-            </p>
-          </div>
-        )}
-      </div>
+      {term && (
+        <div className="searchPage__results">
+          <p className="searchPage__resultCount">
+            About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for {term}
+          </p>
+
+          {data?.items.map(item => (
+            <div className="searchPage__result">
+              <a className="searchPage__resultLink" href={item.link}>
+                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src &&
+                  <img className="searchPage__resultImage" src={item.pagemap?.cse_image[0]?.src} />
+                }
+                
+                {item.displayLink} &#9660;
+              </a>
+              <a href={item.link} className="searchPage__resultTitle">
+                <h2 className="">
+                  {item.title}
+                </h2>
+              </a>
+              <p className="searchPage__resultSnippet">
+                {item.snippet}
+              </p>
+            </div>
+          ))}
+          
+        </div>
+      )}
     </div>
   )
 }
