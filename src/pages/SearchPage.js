@@ -19,15 +19,16 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 // https://cse.google.com/cse/create/new
 
 function SearchPage() {
-  const [{term='chiang mai'}, dispatch] = useStateValue()
+  const [{term}, dispatch] = useStateValue()
 
   // LIVE API CALL (100 call per day limit with free version)
-  const {data} = useGoogleSearch(term);
+  // const {data} = useGoogleSearch(term);
 
   // STATIC API CALL (use for testing so I don't run out of LIVE api calls)
-  // const data = Response2;
+  const data = Response2;
 
-  console.log(data)
+  // console.log('hello from SearchPage.js')
+  // console.log(data)
   return (
     <div className='searchPage'>
       <div className="searchPage__header">
@@ -38,7 +39,7 @@ function SearchPage() {
           />
         </Link>
         <div className="searchPage__headerBody">
-          <Search hideButtons/>
+          <Search hideButtons term={term} />  {/* passed term prop to Search component. This allows query from home page to persist to search results page and display the query in the input field */}
           <div className="searchPage__options">
             <div className="searchPage__optionsLeft">
               <div className="searchPage__option">
