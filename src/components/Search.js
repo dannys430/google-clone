@@ -8,10 +8,10 @@ import {useHistory} from 'react-router-dom';
 import {useStateValue} from '../StateProvider';
 import {actionTypes} from '../reducer';
 
-function Search({hideButtons = false}) {
+function Search({hideButtons = false, term}) {  {/* optional term prop. This allows query from home page to persist to search results page and display the query in the input field */}
   const [{}, dispatch] = useStateValue();
   
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState(term || '')  // if term is not passed as prop, default value is empty string.  If term is passed as prop, default value is term
   const history = useHistory();
 
   const search = e => {
