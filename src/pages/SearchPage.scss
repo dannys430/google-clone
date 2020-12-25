@@ -63,7 +63,8 @@
   max-width: 650px;
   margin-top: 20px;
   margin-left: 240px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .searchPage__resultImage {
@@ -93,4 +94,18 @@
   margin-top: 10px;
   line-height: 25px;
   color: #37393a;
+}
+
+.darkmode {
+  // background: black;
+  background: #1c1919;
+
+  h1, h2, p, a {
+    color: #f9f1f1;
+  }
+  input, div {
+    color: #f9f1f1;
+    // background: black;
+    background: #1c1919;
+  }
 }

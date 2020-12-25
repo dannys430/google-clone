@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Search.css'
+import './Search.scss'
 
 import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
