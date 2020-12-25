@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component, useContext } from 'react';
 import {Link} from 'react-router-dom'
-import './SearchPage.css'
+import './SearchPage.scss'
 import {useStateValue} from '../StateProvider'
 import useGoogleSearch from '../useGoogleSearch'
 import Response from '../response';
 import Response2 from '../response2';
 
 import Search from '../components/Search'
+
+import ToggleTheme from '../components/ToggleTheme';
+import { ThemeContext } from '../context/ThemeContext';
 
 import SearchIcon from '@material-ui/icons/Search';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -21,6 +24,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 function SearchPage() {
   const [{term}, dispatch] = useStateValue()
 
+  const { lightTheme } = useContext(ThemeContext);
+  const theme = lightTheme ? '' : ' darkmode';
+
   // LIVE API CALL (100 call per day limit with free version)
   // const {data} = useGoogleSearch(term);
 
@@ -30,7 +36,7 @@ function SearchPage() {
   // console.log('hello from SearchPage.js')
   // console.log(data)
   return (
-    <div className='searchPage'>
+    <div className={'searchPage' + theme}>
       <div className="searchPage__header">
         <Link to='/'>
           <img
@@ -68,6 +74,7 @@ function SearchPage() {
               </div>
             </div>
             <div className="searchPage__optionsRight">
+              <ToggleTheme />
               <div className="searchPage__option">
                 <Link to='/settings'>Settings</Link>
               </div>

@@ -46,3 +46,16 @@
   object-fit: contain;
   height: 100px;
 }
+
+.darkmode {
+  // background: black;
+  background: #1c1919;
+  
+  h1, h2, p, a, div {
+    color: #f9f1f1;
+  }
+  input {
+    // background: black;
+    background: #1c1919;
+  }
+}
