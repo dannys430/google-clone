@@ -28,10 +28,10 @@ function SearchPage() {
   const theme = lightTheme ? '' : ' darkmode';
 
   // LIVE API CALL (100 call per day limit with free version)
-  // const {data} = useGoogleSearch(term);
+  const {data} = useGoogleSearch(term);
 
   // STATIC API CALL (use for testing so I don't run out of LIVE api calls)
-  const data = Response2;
+  // const data = Response2;
 
   // console.log('hello from SearchPage.js')
   // console.log(data)
