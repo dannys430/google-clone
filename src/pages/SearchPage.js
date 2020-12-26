@@ -7,6 +7,7 @@ import Response from '../response';
 import Response2 from '../response2';
 
 import Search from '../components/Search'
+import {Logo} from '../components/Logo'
 
 import ToggleTheme from '../components/ToggleTheme';
 import { ThemeContext } from '../context/ThemeContext';
@@ -41,7 +42,7 @@ function SearchPage() {
         <Link to='/'>
           <img
             className="searchPage__logo" 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1000px-Google_2015_logo.svg.png" alt=""
+            src={Logo()} alt=""
           />
         </Link>
         <div className="searchPage__headerBody">
@@ -86,34 +87,36 @@ function SearchPage() {
         </div>
       </div>
 
-      {term && (
-        <div className="searchPage__results">
-          <p className="searchPage__resultCount">
-            About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for {term}
-          </p>
+      <div className="searchPage__body">
+        {term && (
+          <div className="searchPage__results">
+            <p className="searchPage__resultCount">
+              About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for {term}
+            </p>
 
-          {data?.items.map(item => (
-            <div className="searchPage__result">
-              <a className="searchPage__resultLink" href={item.link}>
-                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src &&
-                  <img className="searchPage__resultImage" src={item.pagemap?.cse_image[0]?.src} />
-                }
-                
-                {item.displayLink} &#9660;
-              </a>
-              <a href={item.link} className="searchPage__resultTitle">
-                <h2 className="">
-                  {item.title}
-                </h2>
-              </a>
-              <p className="searchPage__resultSnippet">
-                {item.snippet}
-              </p>
-            </div>
-          ))}
-          
-        </div>
-      )}
+            {data?.items.map(item => (
+              <div className="searchPage__result">
+                <a className="searchPage__resultLink" href={item.link}>
+                  {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src &&
+                    <img className="searchPage__resultImage" src={item.pagemap?.cse_image[0]?.src} />
+                  }
+                  
+                  {item.displayLink} &#9660;
+                </a>
+                <a href={item.link} className="searchPage__resultTitle">
+                  <h2 className="">
+                    {item.title}
+                  </h2>
+                </a>
+                <p className="searchPage__resultSnippet">
+                  {item.snippet}
+                </p>
+              </div>
+            ))}
+            
+          </div>
+        )}
+      </div>
     </div>
   )
 }

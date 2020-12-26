@@ -6,6 +6,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import {Avatar} from '@material-ui/core';
 
 import Search from '../components/Search'
+import {Logo} from '../components/Logo'
 
 import ToggleTheme from '../components/ToggleTheme';
 import { ThemeContext } from '../context/ThemeContext';
@@ -33,7 +34,7 @@ function Home() {
       
       <div className="home__body">
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1000px-Google_2015_logo.svg.png" alt=""
+          src={Logo()} alt=""
         />
 
         <div className="home__inputContainer">
