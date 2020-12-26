@@ -54,6 +54,12 @@
   margin-left: 5px;
 }
 
+// .searchPage__body {
+//   // display: flex;
+//   // flex-direction: column;
+//   height: fit-content;
+// }
+
 .searchPage__resultCount {
   color: #70757a;
   font-size: 14px;
@@ -63,8 +69,8 @@
   max-width: 650px;
   margin-top: 20px;
   margin-left: 240px;
-  // margin-bottom: 100px;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
+  // padding-bottom: 100px;
 }
 
 .searchPage__resultImage {
