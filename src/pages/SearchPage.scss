@@ -1,12 +1,18 @@
+.searchPage {
+  height: 100vh;
+}
+
 .searchPage__header {
   display: flex;
-  position: sticky;
+  // position: sticky;
+  position: fixed;
   top: 0;
   background-color: white;
   z-index: 100;
   align-items: flex-start;
   padding: 30px;
   border-bottom: 1px solid lightgray;
+  width: 100vw;
 }
 
 .searchPage__logo {
@@ -57,7 +63,8 @@
 // .searchPage__body {
 //   // display: flex;
 //   // flex-direction: column;
-//   height: fit-content;
+//   // height: fit-content;
+//   height: auto;
 // }
 
 .searchPage__resultCount {
@@ -67,10 +74,11 @@
 
 .searchPage__results {
   max-width: 650px;
-  margin-top: 20px;
+  // margin-top: 20px;
+  padding-top: 185px;
   margin-left: 240px;
-  margin-bottom: 100px;
-  // padding-bottom: 100px;
+  // margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .searchPage__resultImage {
