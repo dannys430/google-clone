@@ -53,3 +53,19 @@
 .search__buttonsHidden {
   display: none!important;
 }
+
+.darkmode {
+  button {
+    background: #2e2f31;
+    border: 1px solid #444040;
+    color: #f8f8f8;
+  }
+
+  button:hover {
+    background: #2e2f31;
+    color: white;
+    box-shadow: 0px 0px 3px black;
+    border: 1px solid gray;
+    text-shadow: 0px 0px 2px black;
+  }
+}
