@@ -35,7 +35,9 @@ function SearchPage() {
   // const data = Response2;
 
   // console.log('hello from SearchPage.js')
-  // console.log(data)
+  
+  const apiLimitExceeded = data?.error?.code == 429 ? true : false
+  
   return (
     <div className={'searchPage' + theme}>
       <div className="searchPage__header">
@@ -90,10 +92,13 @@ function SearchPage() {
       <div className="searchPage__body">
         {term && (
           <div className="searchPage__results">
-            <p className="searchPage__resultCount">
-              About {data?.searchInformation?.formattedTotalResults} results ({data?.searchInformation?.formattedSearchTime} seconds) for {term}
-            </p>
-
+            {apiLimitExceeded 
+              ? <p className="searchPage__resultCount">Sorry, the search limit has been reached.  Please try again later.</p>
+              : <p className="searchPage__resultCount">
+                  About {data?.searchInformation?.formattedTotalResults} results ({data?.searchInformation?.formattedSearchTime} seconds) for {term}
+                </p>
+            }
+            
             {data?.items?.map(item => (
               <div className="searchPage__result">
                 <a className="searchPage__resultLink" href={item.link} target="_blank">

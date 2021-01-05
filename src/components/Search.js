@@ -22,7 +22,7 @@ function Search({hideButtons = false, term}) {  {/* optional term prop. This all
   const search = e => {
     e.preventDefault();
 
-    console.log(`you hit search.  your query is: ${input}`)
+    // console.log(`you hit search.  your query is: ${input}`)
 
     dispatch({
       type: actionTypes.SET_SEARCH_TERM,
