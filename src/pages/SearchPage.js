@@ -96,14 +96,14 @@ function SearchPage() {
 
             {data?.items?.map(item => (
               <div className="searchPage__result">
-                <a className="searchPage__resultLink" href={item.link}>
+                <a className="searchPage__resultLink" href={item.link} target="_blank">
                   {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src &&
                     <img className="searchPage__resultImage" src={item.pagemap?.cse_image[0]?.src} />
                   }
                   
                   {item.displayLink} &#9660;
                 </a>
-                <a href={item.link} className="searchPage__resultTitle">
+                <a href={item.link} target="_blank" className="searchPage__resultTitle">
                   <h2 className="">
                     {item.title}
                   </h2>
